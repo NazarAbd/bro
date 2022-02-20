@@ -1,17 +1,12 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-/*Globle Rules*/
-* {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 html {
   -webkit-scroll-behavior: smooth;
@@ -21,6 +16,7 @@ html {
 }
 body {
   font-family: sans-serif;
+  min-height: 1000vh;
 }
 .container {
   padding-left: 15px;
@@ -47,29 +43,68 @@ body {
   }
 }
 
-.header-section{
+.header-section {
   position: relative;
-    width: 100%;
-    min-height: 100vh;
-    overflow: hidden;
-    background: linear-gradient(rgba(201, 121, 30, 0.856), rgba(95, 64, 17, 0.767)), url(img/hero-bg.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(
+      rgba(201, 121, 30, 0.856),
+      rgba(95, 64, 17, 0.767)
+    ),
+    url(img/hero-bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.header .container{
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 20px;
+  border: 1px blue solid;
+  /* color:white; */
+}
+.header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.header{
-  padding-left: 20px;
-  padding-right: 20px;
+.header .icon {
+  width: 25px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  cursor: pointer;
+  display: none;
 }
-.header ul{
+header .icon span {
+  background-color: #222;
+  margin-bottom: 5px;
+  height: 2px;
+  width: 100%;
+  transition: 0.3s;
+}
+header .icon span:nth-child(2) {
+  width: 60%;
+}
+header .icon:hover span:nth-child(2) {
+  width: 100%;
+}
+.header ul {
   flex: 1;
   list-style: none;
   display: flex;
   justify-content: space-between;
-  background:cornflowerblue;
+  background: rgb(11, 59, 148);
+  margin-left: 100px;
+  max-width: 500px;
+}
+@media (max-width: 768px) {
+  .header ul {
+    display: none;
+  }
+  .header .icon {
+    display: flex;
+  }
 }
